@@ -3,7 +3,7 @@ Backpack for Laravel Skeleton
 
 ## Install
 
-- `composer update`
+- `composer create-project sang-asia/backpack-website your-project-name`
 - Configure database connection.
 - `php artisan migrate`
 - `php artisan backpack:user`
