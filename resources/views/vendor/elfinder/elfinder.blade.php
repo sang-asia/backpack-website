@@ -10,17 +10,33 @@
             // Documentation for client options:
             // https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
             $().ready(function() {
-                $('#elfinder').elfinder({
+                let elFinder = $('#elfinder');
+
+                let elFinderContainer = elFinder.parent();
+                elFinderContainer.css({ 'flex': 1 });
+
+                let elFinderMain = elFinderContainer.parent();
+                elFinderMain.addClass('d-flex flex-column');
+
+                elFinder.elfinder({
                     // set your elFinder options here
                     @if($locale)
                         lang: '{{ $locale }}', // locale
                     @endif
-                    customData: { 
+                    customData: {
                         _token: '{{ csrf_token() }}'
                     },
                     url : '{{ route("elfinder.connector") }}',  // connector URL
-                    soundPath: '{{ asset($dir.'/sounds') }}'
+                    soundPath: '{{ asset($dir.'/sounds') }}',
+                    height: '100%',
+                    heightBase: elFinder.parent(),
                 });
+            });
+
+            $(window).resize(function () {
+                const elFinder = $('#elfinder').getElFinder();
+                elFinder.resize('100%', 1);
+                elFinder.resize('100%', '100%');
             });
         </script>
 @endsection

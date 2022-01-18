@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        
+
         @include('vendor.elfinder.common_scripts')
         @include('vendor.elfinder.common_styles')
-        
+
         <script type="text/javascript">
             $().ready(function () {
-                var elf = $('#elfinder').elfinder({
+                var elFinder = $('#elfinder');
+
+                var elf = elFinder.elfinder({
                     // set your elFinder options here
                     @if($locale)
                         lang: '{{ $locale }}', // locale
@@ -21,8 +23,9 @@
                     ui: ['toolbar', 'path','stat'],
                     onlyMimes: [{{ $mimeTypes }}],
                     rememberLastDir : false,
-                    height: 300,
                     defaultView: 'list',
+                    height: '100%',
+                    heightBase: elFinder.parent(),
                     getFileCallback: function (file) {
                         window.parent.processSelectedFile(file, '{{ $input_id }}');
                         console.log(file);
@@ -53,6 +56,12 @@
                         }
                     }
                 }).elfinder('instance');
+
+                $(window).resize(function () {
+                    const elFinder = $('#elfinder').getElFinder();
+                    elFinder.resize('100%', 1);
+                    elFinder.resize('100%', '100%');
+                });
             });
         </script>
     </head>

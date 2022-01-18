@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        
+
         @include('vendor.elfinder.common_scripts')
         @include('vendor.elfinder.common_styles')
 
         <script type="text/javascript">
             $().ready(function () {
-                var elf = $('#elfinder').elfinder({
+                var elFinder = $('#elfinder');
+
+                var elf = elFinder.elfinder({
                     // set your elFinder options here
                     @if($locale)
                         lang: '{{ $locale }}', // locale
                     @endif
-                    customData: { 
+                    customData: {
                         _token: '{{ csrf_token() }}'
                     },
                     url: '{{ route("elfinder.connector") }}',  // connector URL
@@ -20,6 +22,8 @@
                     dialog: {width: 900, modal: true, title: 'Select a file'},
                     resizable: false,
                     onlyMimes: @json(unserialize(urldecode(request('mimes')))),
+                    height: '100%',
+                    heightBase: elFinder.parent(),
                     commandsOptions: {
                         getfile: {
                             multiple: {{ request('multiple') ? 'true' : 'false' }},
@@ -36,6 +40,12 @@
                         parent.jQuery.colorbox.close();
                     }
                 }).elfinder('instance');
+
+                $(window).resize(function () {
+                    const elFinder = $('#elfinder').getElFinder();
+                    elFinder.resize('100%', 1);
+                    elFinder.resize('100%', '100%');
+                });
             });
         </script>
 
