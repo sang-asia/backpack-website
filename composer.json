@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "sang-asia/backpack-website",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "A ready to develop Backpack for Laravel Website with FE & BE.",
+    "keywords": ["framework", "laravel", "backpack", "cms"],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
