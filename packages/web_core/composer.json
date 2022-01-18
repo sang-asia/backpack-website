@@ -1,0 +1,23 @@
+{
+    "name": "web/core",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Sang Lu",
+            "email": "contact@sang.asia",
+            "homepage": "https://www.sang.asia"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Web\\Core\\Provider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Web\\Core\\": "src"
+        }
+    }
+}

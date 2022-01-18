@@ -1,0 +1,31 @@
+{
+    "name": "web/be",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Sang Lu",
+            "email": "contact@sang.asia",
+            "homepage": "https://www.sang.asia"
+        }
+    ],
+    "require": {
+        "backpack/crud": "4.1.*",
+        "backpack/filemanager": "^1.1",
+        "backpack/permissionmanager": "^6.0",
+        "backpack/settings": "^3.0",
+        "pestopancake/laravel-backpack-database-notifications": "^1.0",
+        "web/core": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Web\\BE\\Provider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Web\\BE\\": "src"
+        }
+    }
+}

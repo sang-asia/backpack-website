@@ -1,0 +1,28 @@
+{
+    "name": "web/fe",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Sang Lu",
+            "email": "contact@sang.asia",
+            "homepage": "https://www.sang.asia"
+        }
+    ],
+    "require": {
+        "backpack/settings": "^3.0",
+        "web/core": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Web\\FE\\Provider",
+                "Web\\FE\\Router"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Web\\FE\\": "src"
+        }
+    }
+}
