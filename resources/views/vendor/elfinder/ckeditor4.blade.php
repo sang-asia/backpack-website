@@ -5,6 +5,11 @@
         @include('vendor.elfinder.common_scripts')
         @include('vendor.elfinder.common_styles')
 
+        <style>
+            html { height: 100% }
+            body { height: 100%; margin: 0; }
+        </style>
+
         <!-- elFinder initialization (REQUIRED) -->
         <script type="text/javascript" charset="utf-8">
             // Helper function to get parameters from the query string.

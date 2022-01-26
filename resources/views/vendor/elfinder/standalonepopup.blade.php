@@ -22,8 +22,6 @@
                     dialog: {width: 900, modal: true, title: 'Select a file'},
                     resizable: false,
                     onlyMimes: @json(unserialize(urldecode(request('mimes')))),
-                    height: '100%',
-                    heightBase: elFinder.parent(),
                     commandsOptions: {
                         getfile: {
                             multiple: {{ request('multiple') ? 'true' : 'false' }},
@@ -40,12 +38,6 @@
                         parent.jQuery.colorbox.close();
                     }
                 }).elfinder('instance');
-
-                $(window).resize(function () {
-                    const elFinder = $('#elfinder').getElFinder();
-                    elFinder.resize('100%', 1);
-                    elFinder.resize('100%', '100%');
-                });
             });
         </script>
 
