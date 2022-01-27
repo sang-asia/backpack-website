@@ -19,7 +19,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Web\\BE\\Provider"
+                "Web\\BE\\Provider",
+                "Web\\BE\\Router"
             ]
         }
     },
